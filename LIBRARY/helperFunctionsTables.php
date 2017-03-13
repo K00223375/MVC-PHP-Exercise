@@ -9,7 +9,7 @@ function getTableData($connection,$sql)
 	}
 	//catch exception
 	catch(Exception $e) {
-		if (__DEBUG==1) 
+		if (__DEBUG==1)
 			{
 			//DEBUG mode is enabled
 			echo '<hr><h2>helperFunctionsTables.php  - getTableDataDebug Information:</h2>';
@@ -19,7 +19,7 @@ function getTableData($connection,$sql)
 			//print_r($_POST);
 			//echo '<h4>SQL:</h4>';
 			//echo '$sql string:'.$sql'<br>';
-			exit('<p class="warning">PHP script terminated');		
+			exit('<p class="warning">PHP script terminated');
 			}
 		else
 			{
@@ -37,10 +37,10 @@ function checkResultSet($rs)
 			//DEBUG mode is enabled
 			echo '<hr><h2>helperFunctionsTables.php  - getTableDataDbug Information:</h2>';
 			echo '<h4>Error message: ResultSet is Empty - check table name</h4>';
-			exit('<p class="warning">PHP script terminated');		
+			exit('<p class="warning">PHP script terminated');
 		}
 		else
-		{	
+		{
 			header("Location:".__USER_ERROR_PAGE);
 		}
 	} else {
@@ -56,10 +56,10 @@ function generateTable($tableName, $titlesResultSet, $dataResultSet)
 	echo "<table border=1>";
 
 	//first - create the table caption and headings
-	echo "<caption>".strtoupper($tableName)." TABLE - QUERY RESULT</caption>";
+	echo "<caption>".strtoupper($tableName)." TABLE - STUDENT TRANSCRIPT</caption>";
 	echo '<tr>';
 	foreach($titlesResultSet as $fieldName) {
-		echo '<th>'.$fieldName['Field'].'</th>';
+		echo '<th>'.$fieldName['COLUMN_NAME'].'</th>';
 	}
 	echo '</tr>';
 
@@ -67,7 +67,7 @@ function generateTable($tableName, $titlesResultSet, $dataResultSet)
 	foreach($dataResultSet as $row) {
 		echo '<tr>';
 		foreach($titlesResultSet as $fieldName) {
-			echo '<td>'.$row[$fieldName['Field']].'</td>';}
+			echo '<td>'.$row[$fieldName['COLUMN_NAME']].'</td>';}
 		echo '</tr>';
 		}
 	echo "</table>";

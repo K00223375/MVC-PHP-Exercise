@@ -5,12 +5,18 @@
 </head>
 <body>
 
-<h2>Prac1 Student Transcripts<h2>
+<h1>Prac1 Student Transcripts<h1>
 <hr>
-
 <?php
 //use resultsets to generate HTML tables
-generateTable($table, $arrayTitles, $arrayData);
+if(empty($arrayData))
+{
+   echo "Please Enter Valid StudentID!!!!!";
+	 include("FORMS/queryStudentTranscriptsForm.html");
+}else {
+	generateTable($table, $arrayTitles, $arrayData);
+}
+
 ?>
 <hr>
 <a href="<?php echo $_SERVER["PHP_SELF"];?>">Home</a>
